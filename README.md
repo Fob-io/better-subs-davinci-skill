@@ -8,6 +8,9 @@ Skill in formato Agent Skills (Claude Code, app Claude e altri agenti) che gener
 - Chiede lo script (allegato, Google Docs/Drive o Notion) se non lo indichi. Senza script la trascrizione esterna è obbligatoria e il controllo degli errori è solo sommario.
 - Divide in righe brevi, aggancia i tagli, inserisce tutto con un unico SRT e segna i dubbi con marker.
 
+## Glossario
+`glossario.md` è un modello vuoto. L'agente crea il tuo `glossario.<nome>.md` personale accanto a `SKILL.md` con tutte le informazioni utili per migliorare la trascrizione, parole chiave ed errori tipici. L'agente lo legge, e rimane privato sulla tua macchina. In qualsiasi modmento puoi chiedere al tuo agente di aggiornare il tuo `glossario.md`
+
 ## Requisiti
 - DaVinci Resolve Studio con lo scripting esterno attivo, e un server MCP di Resolve collegato all'agente che offra `run_script` / `run_script_unsafe`. Senza, la skill si installa ma non può agire sulla timeline.
 - Per la trascrizione esterna: un modello Whisper (per esempio large-v3-turbo) con `whisperx` o `stable-ts`, più `ffmpeg`. La skill spiega quale modello scegliere.
@@ -56,9 +59,6 @@ Scarica `better-subs-davinci-vX.Y.zip` dalla [pagina Release](https://github.com
 
 ### Altri agenti
 Cursor, Gemini CLI, GitHub Copilot e gli altri che leggono il formato Agent Skills: lancia lo stesso comando senza `-a` e scegli l'agente quando te lo chiede.
-
-## Glossario
-`glossario.md` è un modello vuoto. Crea il tuo `glossario.<nome>.md` accanto a `SKILL.md` con clienti, parole chiave ed errori tipici. La skill lo legge, git lo ignora e quindi resta sul tuo Mac.
 
 ## Licenza
 MIT, vedi `LICENSE`.
