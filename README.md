@@ -18,7 +18,7 @@ Skill in formato Agent Skills (Claude Code, app Claude e altri agenti) che gener
 La cartella della skill deve chiamarsi `better-subs-davinci`. Dopo l'installazione riavvia l'agente.
 
 ### Claude Code, Codex, OpenCode
-Basta un comando, con Node.js 22.20 o successivo. L'installer `skills` installa la skill nella cartella giusta di ogni agente.
+Basta un comando, con Node.js 22.20 o successivo (se non lo hai, vedi [Se non hai Node.js](#se-non-hai-nodejs)). L'installer `skills` installa la skill nella cartella giusta di ogni agente.
 ```bash
 npx skills add Fob-io/better-subs-davinci-skill -g -a claude-code -a codex -a opencode
 ```
@@ -33,6 +33,22 @@ Senza Node, clona direttamente nella cartella dell'agente:
 | OpenCode | `git clone https://github.com/Fob-io/better-subs-davinci-skill ~/.config/opencode/skills/better-subs-davinci` |
 
 Per aggiornare: `git pull` dentro la cartella clonata.
+
+### Se non hai Node.js
+Node.js serve solo per il comando `npx` qui sopra. Se non sai se ce l'hai, apri il Terminale (su Mac: Cmd+Spazio, scrivi "Terminale", Invio; su Windows: cerca "PowerShell") e scrivi:
+```bash
+node -v
+```
+Se risponde con un numero come `v22.20.0` o più alto, sei a posto. Se risponde "command not found" (o "non riconosciuto") oppure un numero più basso, installalo:
+
+- **Mac o Windows, il modo più semplice:** vai su [nodejs.org](https://nodejs.org), scarica la versione **LTS** e apri il file scaricato, poi premi Continua fino alla fine.
+- **Mac con Homebrew:** `brew install node`
+- **Windows con winget:** `winget install OpenJS.NodeJS.LTS`
+- **Linux:** usa il gestore pacchetti della tua distribuzione, oppure [nodejs.org](https://nodejs.org/en/download).
+
+Poi **chiudi e riapri il Terminale** e rilancia `node -v`: deve mostrare la versione nuova. Ora puoi usare il comando `npx skills add ...`.
+
+Non vuoi installare Node? Puoi usare il `git clone` della tabella qui sopra (serve Git: su Mac scrivi `git --version` e, se non c'è, il sistema propone di installarlo) oppure lo zip della sezione successiva, che non richiede né Node né Git.
 
 ### App Claude (zip)
 Scarica `better-subs-davinci-vX.Y.zip` dalla [pagina Release](https://github.com/Fob-io/better-subs-davinci-skill/releases/latest) e caricalo in Impostazioni → Capacità → Skill. A ogni nuova versione devi scaricare e caricare un nuovo zip. Nell'app la trascrizione esterna funziona solo se l'ambiente vede il tuo Mac, Whisper e `ffmpeg`.
