@@ -4,7 +4,7 @@ Skill in formato Agent Skills (Claude Code, app Claude e altri agenti) che gener
 Versione 1.1.5. Le istruzioni e i sottotitoli sono in italiano.
 
 ## Cosa fa
-- Impara i tuoi clienti con un glossario: parole chiave, grafia di nomi e marchi, errori tipici della trascrizione. Lo legge a ogni lavoro e, quando trova una forma nuova, ti propone di aggiungerla.
+- Impara da i tuoi contenuti e script con un glossario: parole chiave, grafia di nomi e marchi, errori tipici della trascrizione. Lo legge a ogni lavoro e, quando trova una forma nuova, ti propone di aggiungerla.
 - Controlla che Resolve sia aperto, lo apre se serve, e chiede progetto, timeline e massimo di caratteri per sottotitolo se non li indichi.
 - Chiede lo script (allegato, Google Docs/Drive o Notion) se non lo indichi. Senza script la trascrizione esterna è obbligatoria e il controllo degli errori è solo sommario.
 - Divide in righe brevi, aggancia i tagli, inserisce tutto con un unico SRT e segna i dubbi con marker.
