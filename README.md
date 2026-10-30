@@ -33,6 +33,26 @@ git clone https://github.com/Fob-io/better-subs-davinci-skill /tmp/better-subs-d
 
 Limiti dell'app: servono gli strumenti di Resolve collegati a Claude (connettore DaVinci Resolve), e la trascrizione esterna funziona solo se l'ambiente vede il tuo Mac, Whisper e `ffmpeg`. Gli aggiornamenti vanno rifatti a mano con un nuovo zip.
 
+### Altri agenti (Codex, Cursor, Gemini CLI, Copilot, OpenCode e simili)
+`SKILL.md` è il formato Agent Skills, letto da più agenti. Il modo più semplice è l'installer `skills` (serve Node.js 22.20 o successivo), che riconosce gli agenti installati e copia la skill nella cartella giusta di ciascuno:
+```bash
+npx skills add Fob-io/better-subs-davinci-skill -g
+```
+`-g` la rende disponibile in tutti i progetti; `-a <agente>` ne sceglie uno (es. `-a claude-code`). Aggiornamenti: `npx skills check` e `npx skills update`.
+
+A mano, copia la cartella `better-subs-davinci` nella cartella skill dell'agente. Percorsi riportati da guide della community, **non verificati sulla documentazione ufficiale**, controllali prima:
+
+| Agente | Cartella utente |
+|---|---|
+| Claude Code | `~/.claude/skills/` |
+| Codex | `~/.codex/skills/` o `~/.agents/skills/` |
+| Cursor | `~/.cursor/skills/` o `~/.agents/skills/` |
+| Gemini CLI | `~/.gemini/skills/` o `~/.agents/skills/` |
+| GitHub Copilot | `~/.copilot/skills/` |
+| OpenCode | `~/.config/opencode/skills/` |
+
+**Importante per tutti gli agenti:** la skill pilota DaVinci Resolve con `run_script` / `run_script_unsafe`. L'agente deve avere un server MCP di Resolve collegato che offra quegli strumenti (o equivalenti); senza, la skill si installa ma non può agire sulla timeline. Questa skill è testata solo con Claude.
+
 ## Glossario
 `glossario.md` è un modello vuoto. Crea il tuo `glossario.<nome>` accanto a `SKILL.md` con clienti, parole chiave ed errori tipici: la skill lo legge e git lo ignora, quindi resta sul tuo Mac.
 
