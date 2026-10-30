@@ -1,7 +1,7 @@
 # Better Subs Davinci
 
 Skill in formato Agent Skills (Claude Code, app Claude e altri agenti) che genera, corregge e inserisce in DaVinci Resolve i sottotitoli.
-Versione 1.1.5. Le istruzioni e i sottotitoli sono in italiano.
+Versione 1.2.0. Le istruzioni e i sottotitoli sono in italiano.
 
 ## Cosa fa
 - Impara da i tuoi contenuti e script con un glossario: parole chiave, grafia di nomi e marchi, errori tipici della trascrizione. Lo legge a ogni lavoro e, quando trova una forma nuova, ti propone di aggiungerla.
@@ -14,7 +14,7 @@ Versione 1.1.5. Le istruzioni e i sottotitoli sono in italiano.
 
 ## Requisiti
 - DaVinci Resolve Studio con lo scripting esterno attivo, e un server MCP di Resolve collegato all'agente che offra `run_script` / `run_script_unsafe`. Senza, la skill si installa ma non può agire sulla timeline.
-- Per la trascrizione esterna: un modello Whisper (per esempio large-v3-turbo) con `whisperx` o `stable-ts`, più `ffmpeg`. La skill spiega quale modello scegliere.
+- Per la trascrizione: `stable-ts` con il modello Whisper large-v3-turbo (circa 1,5 GB) e `ffmpeg`. Se mancano, la skill spiega cosa installare e chiede il permesso.
 - Facoltativi: i connettori Google Drive e Notion, per cercare lo script.
 - Provata finora solo con Claude.
 

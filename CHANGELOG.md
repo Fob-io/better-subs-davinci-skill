@@ -2,11 +2,34 @@
 
 Le versioni seguono `metadata.version` in `SKILL.md`. Più recente in alto.
 
-## Non rilasciato
-Modifiche già su `main` in attesa della prossima Release.
+## 1.2.0 (2026-10-30)
+Sottotitoli sincronizzati con la voce. Prove con Resolve vero su due timeline, e sul modello di inserimento con un Resolve simulato.
 
-- Corretto nello script: con la traccia sottotitoli vuota non si chiama più `DeleteClips` e non si prova a ripristinare un backup vuoto. Trovato nella prima prova su Resolve vero (inserimento di 12 sottotitoli con trascrizione esterna, tempi identici ai previsti).
-- Il glossario personale ora si chiama `glossario.<nome>.md` (per esempio `glossario.fabio.md`): si apre e si legge bene negli editor e su GitHub. La skill continua a leggere tutti i file `glossario.*`, quindi i vecchi nomi senza `.md` funzionano ancora. `glossario.md` resta il modello condiviso; `.gitignore` ignora i glossari personali.
+### Tempi
+- `stable-ts` con Whisper large-v3-turbo è ora il predefinito per testo e tempi. Whisper puro poteva anticipare l'inizio delle parole di diversi frame. Su una clip di prova, rispetto a marker messi a mano: scarto medio assoluto 0,8 frame contro 4,1, massimo 2,8 contro 12,8. Su 218 secondi i tempi sono risultati alla pari con quelli di Resolve.
+- Nuovo modello "Controllo voce": confronta l'inizio dei sub con gli attacchi della voce. Riporta scarto medio assoluto e massimo, e segnala senza correggere, perché la forma d'onda può scambiare respiri e rumori per attacchi.
+- Il motore interno di Resolve resta come ripiego, con l'avviso sui tratti saltati nei video lunghi e il controllo dello stato del lavoro.
+
+### Inserimento
+- `RANGES = [(inizio, fine, righe), ...]` gestisce più blocchi con vuoti in mezzo: sostituisce `L`, `RANGE`, `VOICE` e `SONG`.
+- `SOSTITUISCI` rigenera tutta la traccia senza ricopiare i sub esistenti. `CONFERMATO` è obbligatorio se la traccia non è vuota.
+- Lo script si ferma se la timeline aperta non è quella dichiarata (`TIMELINE`), e non crea o tocca nulla prima dei controlli.
+- Con la traccia vuota non si chiama più `DeleteClips` e non si prova a ripristinare un backup vuoto.
+
+### Trascrizione esterna
+- Nuovo modello "Export voce": ricostruisce la traccia voce dai clip sorgente, con sorgenti a frame rate diversi, e segnala i clip con velocità cambiata.
+- Nuovo modello "Trascrizione" e procedura standard di installazione in un venv (`~/venv-subs`), sempre con consenso.
+- Punteggiatura aggiunta prima di suddividere, a parità di parole.
+
+### Flusso
+- Leggere il glossario è la prima azione, e il riepilogo dichiara cosa è stato usato. Niente marker Fucsia per ciò che il glossario già copre.
+- Notion: con un link rotto o senza un nome, la skill cerca per nome di progetto o timeline, propone il candidato e chiede conferma. Controlla che lo script sia compatibile con la timeline.
+- Suddivisione più precisa: niente frasi che finiscono a metà riga né locuzioni spezzate. `MAXC` + 4 anche per le frasi CTA e per evitare righe sotto gli 8 frame.
+- Marker: `Fuchsia` è il colore giusto; se rigeneri i sub, i marker "Controlla sub" vengono riposizionati.
+- La skill dice subito che lo stile dei sottotitoli resta manuale.
+
+### Glossario
+- Il glossario personale si chiama ora `glossario.<nome>.md` (per esempio `glossario.fabio.md`), così si apre e si legge bene. I vecchi nomi senza `.md` funzionano ancora.
 
 ## 1.1.5 (2026-10-30)
 Correzioni dopo una revisione del codice. Provata solo con un Resolve simulato, non con Resolve vero.
