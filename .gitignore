@@ -1,0 +1,4 @@
+# glossari personali: restano solo sul tuo Mac (glossario.md è il modello)
+glossario.*
+!glossario.md
+.DS_Store
