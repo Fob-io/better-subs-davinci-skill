@@ -1,6 +1,7 @@
 ---
 name: "better-subs-davinci"
-version: "1.0"
+metadata:
+  version: "1.0"
 description: "Better Subs Davinci: sottotitoli per reel verticali in DaVinci Resolve (trascrizione, correzione su script, suddivisione, SRT, marker). Usala per \"fai i subs\" o \"rigenera i subs in questo punto\"."
 ---
 
@@ -187,5 +188,5 @@ else:
 ```
 
 ## Versioni
-Aggiorna `version` nel blocco iniziale e aggiungi una riga qui a ogni modifica.
+Aggiorna `metadata.version` nel blocco iniziale e aggiungi una riga qui a ogni modifica.
 - **1.0** — prima versione condivisibile: richiesta di script, progetto, timeline e `MAXC` se non indicati; trascrizione esterna obbligatoria senza script; glossari in file separati (`glossario.md` modello, `glossario.<nome>` personali).

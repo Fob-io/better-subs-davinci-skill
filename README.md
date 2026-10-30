@@ -13,10 +13,25 @@ Skill per Claude (Claude Code e app): genera, corregge e inserisce i sottotitoli
 - Facoltativi: connettori Google Drive e Notion per cercare lo script.
 
 ## Installare
+
+### Consigliato: Claude Code
+È il modo più comodo: la skill si aggiorna con un comando e Claude Code ha accesso al tuo Mac, quindi trova Whisper e `ffmpeg` per la trascrizione esterna.
 ```bash
 git clone https://github.com/Fob-io/better-subs-davinci-skill ~/.claude/skills/better-subs-davinci
 ```
-Riavvia Claude. Per aggiornare: `cd ~/.claude/skills/better-subs-davinci && git pull`.
+Riavvia Claude. Per aggiornare:
+```bash
+cd ~/.claude/skills/better-subs-davinci && git pull
+```
+
+### Alternativa: app Claude (zip)
+1. Scarica la repo come zip (Code → Download ZIP) oppure crea lo zip da Terminale. La cartella dentro lo zip deve chiamarsi `better-subs-davinci` e contenere `SKILL.md`:
+```bash
+git clone https://github.com/Fob-io/better-subs-davinci-skill /tmp/better-subs-davinci && cd /tmp && zip -r better-subs-davinci.zip better-subs-davinci -x "*/.git/*"
+```
+2. In Claude: Impostazioni → Capacità → Skill → carica `better-subs-davinci.zip`.
+
+Limiti dell'app: servono gli strumenti di Resolve collegati a Claude (connettore DaVinci Resolve), e la trascrizione esterna funziona solo se l'ambiente vede il tuo Mac, Whisper e `ffmpeg`. Gli aggiornamenti vanno rifatti a mano con un nuovo zip.
 
 ## Glossario
 `glossario.md` è un modello vuoto. Crea il tuo `glossario.<nome>` accanto a `SKILL.md` con clienti, parole chiave ed errori tipici: la skill lo legge e git lo ignora, quindi resta sul tuo Mac.
