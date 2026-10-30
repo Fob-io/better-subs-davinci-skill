@@ -2,8 +2,23 @@
 
 Skill in formato Agent Skills (Claude Code, app Claude e altri agenti) che genera, corregge e inserisce in DaVinci Resolve i sottotitoli dei reel verticali (1080×1920). Versione 1.1.5. Le istruzioni e i sottotitoli sono in italiano.
 
+## Il glossario: la skill impara i tuoi clienti
+Ogni cliente ha le sue parole, e una trascrizione automatica sbaglia sempre le stesse. Il glossario è un file di testo dove annoti queste cose una volta sola: la skill lo legge a ogni lavoro e le corregge da sola.
+
+- **Cosa ci scrivi, per ogni cliente o progetto:** la parola chiave della call to action, le frasi che tornano in ogni video (presentazione, chiusura), la grafia giusta di nomi, marchi e titoli, gli errori tipici della trascrizione ("trascritto male" → corretto) e le avvertenze (parole da non spezzare, parti che la generazione automatica salta).
+- **Quando lo usa:** all'inizio del lavoro legge tutti i file `glossario.*` accanto a `SKILL.md`, poi applica le voci del cliente giusto mentre corregge il testo. Se non trova voci utili, procede senza inventarne.
+- **Si arricchisce:** quando incontra una forma nuova (un nome scritto in modo diverso, un errore che si ripete) ti propone di aggiungerla e la scrive solo se dici di sì.
+- **Resta tuo:** `glossario.md` è il modello vuoto condiviso. Il tuo, `glossario.<nome>.md`, vive solo sul tuo computer: git lo ignora e non finisce mai in questa repo.
+
+Esempio inventato:
+```
+### Panificio Esempio
+- Parola chiave CTA: "PANE".
+- Errori tipici: "panne" → PANE; "integrare" → integrale.
+- Non spezzare: "pane integrale".
+```
+
 ## Cosa fa
-- **Impara i tuoi clienti con un glossario.** Per ogni cliente o progetto annoti la parola chiave della call to action, le frasi che tornano in ogni video, la grafia di nomi e marchi, gli errori tipici della trascrizione ("trascritto male" → corretto) e le avvertenze (parole da non spezzare, parti che la generazione automatica salta). La skill lo legge a ogni lavoro e corregge da sola ciò che prima sbagliava sempre. Quando trova una forma nuova ti propone di aggiungerla, e la scrive solo se dici di sì. Il tuo glossario resta sul tuo Mac, fuori da git. Esempio inventato: "Panificio Esempio: parola chiave CTA `PANE`; trascritto `panne` → `PANE`; `pane integrale` non va spezzato".
 - Controlla che Resolve sia aperto, lo apre se serve, e chiede progetto, timeline e massimo di caratteri per sottotitolo se non li indichi.
 - Chiede lo script (allegato, Google Docs/Drive o Notion) se non lo indichi. Senza script la trascrizione esterna è obbligatoria e il controllo degli errori è solo sommario.
 - Divide in righe brevi, aggancia i tagli, inserisce tutto con un unico SRT e segna i dubbi con marker.
