@@ -1,6 +1,6 @@
 # Better Subs Davinci
 
-Skill per Claude (Claude Code e app): genera, corregge e inserisce i sottotitoli dei reel verticali (1080×1920) in DaVinci Resolve. Versione **1.0**. Le istruzioni sono in italiano e i sottotitoli prodotti sono in italiano.
+Skill in formato Agent Skills (Claude Code, app Claude e altri agenti): genera, corregge e inserisce i sottotitoli dei reel verticali (1080×1920) in DaVinci Resolve. Versione **1.1**. Le istruzioni sono in italiano e i sottotitoli prodotti sono in italiano.
 
 ## Cosa fa
 - Controlla che Resolve sia aperto (lo apre se serve) e chiede progetto, timeline e massimo caratteri per sottotitolo se non li indichi.

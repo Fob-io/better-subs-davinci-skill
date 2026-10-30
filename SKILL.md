@@ -1,17 +1,17 @@
 ---
 name: "better-subs-davinci"
 metadata:
-  version: "1.0"
+  version: "1.1"
 description: "Better Subs Davinci: sottotitoli per reel verticali in DaVinci Resolve (trascrizione, correzione su script, suddivisione, SRT, marker). Usala per \"fai i subs\" o \"rigenera i subs in questo punto\"."
 ---
 
-# Better Subs Davinci — v1.0
+# Better Subs Davinci — v1.1
 Sottotitoli in DaVinci Resolve per reel verticali.
 
-Lavora sulla timeline aperta in Resolve tramite gli strumenti `run_script` / `run_script_unsafe` (caricali con ToolSearch se sono differiti). Ogni chiamata è stateless: rileggi sempre lo stato dalla timeline. Rispondi in italiano.
+Lavora sulla timeline aperta in Resolve tramite gli strumenti `run_script` / `run_script_unsafe` (se l'agente li tiene da attivare o differiti, caricali prima con il suo meccanismo; i nomi possono cambiare a seconda del server MCP di Resolve collegato, in tal caso usa gli equivalenti). Ogni chiamata è stateless: rileggi sempre lo stato dalla timeline. Rispondi in italiano.
 
 ## 0. Resolve, progetto e timeline
-- Verifica che DaVinci Resolve sia aperto (`get_resolve_status`). Se non lo è, aprilo con `launch_resolve` e aspetta che risponda (il primo avvio può richiedere fino a un minuto). Se l'avvio fallisce, dillo all'utente e fermati.
+- Verifica che DaVinci Resolve sia aperto (es. `get_resolve_status`). Se non lo è, aprilo con lo strumento di avvio (es. `launch_resolve`) e aspetta che risponda (il primo avvio può richiedere fino a un minuto). Se l'avvio fallisce, dillo all'utente e fermati.
 - Leggi progetto e timeline attualmente aperti.
 - **Se l'utente non ha già indicato progetto e timeline** nella richiesta, chiedigli su quali devi generare i sottotitoli, proponendo come default quelli aperti ora (es. "Genero su *NN - Titolo V1* nel progetto *X*, giusto?"). Se ha già indicato progetto e/o timeline, usa quelli: se diversi da quelli aperti, aprili (`LoadProject`, `SetCurrentTimeline`) e verifica di essere sulla timeline giusta prima di toccare qualcosa.
 - Se progetto o timeline indicati non esistono, mostra i nomi disponibili e chiedi quale.
@@ -34,8 +34,8 @@ Lavora sulla timeline aperta in Resolve tramite gli strumenti `run_script` / `ru
 
 Poi, in base alla risposta:
 - **Allegato o incollato**: usa direttamente quel testo.
-- **Google Docs / Drive**: `search_files` con `title contains '<nome>'`, poi `read_file_content`. Se i risultati sono più d'uno o nessuno, mostra i candidati e chiedi quale; non scegliere a caso.
-- **Notion**: cerca la pagina per titolo con `notion-search` (o apri il link dato). Se ci sono più corrispondenze, chiedi quale. Leggi anche Note/proprietà della pagina (CTA, parole chiave, avvertenze).
+- **Google Docs / Drive**: lo strumento di ricerca file del connettore (es. `search_files` con `title contains '<nome>'`), poi quello di lettura (es. `read_file_content`). Se i risultati sono più d'uno o nessuno, mostra i candidati e chiedi quale; non scegliere a caso.
+- **Notion**: cerca la pagina per titolo con lo strumento di ricerca Notion (es. `notion-search`) oppure apri il link dato. Se ci sono più corrispondenze, chiedi quale. Leggi anche Note/proprietà della pagina (CTA, parole chiave, avvertenze).
 - **Nessuno script**: **insisti sul fatto che senza script il controllo è solo sommario.** Senza un testo di riferimento non puoi sapere come sono scritti nomi, marchi, titoli e parole chiave, né se la trascrizione automatica ha saltato o storpiato dei pezzi: puoi correggere solo gli errori evidenti (grammatica, parole senza senso). Prima di procedere dillo chiaramente e invita l'utente a darti lo script (anche solo incollato in chat). Se conferma di voler andare avanti senza, **la trascrizione esterna (sezione 3A) è un passaggio obbligatorio**: il motore interno di Resolve non permette di scegliere il modello e da solo, senza script a correggerlo, non è affidabile. Marca Fucsia ogni dubbio su nomi e termini.
 - Se il connettore richiesto (Drive o Notion) non è disponibile o la ricerca fallisce, dillo e chiedi di allegare o incollare il testo. Non proseguire senza script a meno che l'utente scelga l'opzione 4.
 
@@ -190,3 +190,4 @@ else:
 ## Versioni
 Aggiorna `metadata.version` nel blocco iniziale e aggiungi una riga qui a ogni modifica.
 - **1.0** — prima versione condivisibile: richiesta di script, progetto, timeline e `MAXC` se non indicati; trascrizione esterna obbligatoria senza script; glossari in file separati (`glossario.md` modello, `glossario.<nome>` personali).
+- **1.1** — indipendente dall'agente: i nomi degli strumenti (Resolve, Drive, Notion) sono esempi e non si assume più `ToolSearch`.
