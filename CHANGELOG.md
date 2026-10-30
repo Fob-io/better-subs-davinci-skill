@@ -2,7 +2,7 @@
 
 Le versioni seguono `metadata.version` in `SKILL.md`. Più recente in alto.
 
-## 1.2 (2026-10-30)
+## 1.1.5 (2026-10-30)
 Correzioni dopo una revisione del codice. Provata solo con un Resolve simulato, non con Resolve vero.
 
 ### Sicurezza dei dati

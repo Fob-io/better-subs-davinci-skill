@@ -1,11 +1,11 @@
 ---
 name: "better-subs-davinci"
 metadata:
-  version: "1.2"
+  version: "1.1.5"
 description: "Better Subs Davinci: sottotitoli per reel verticali in DaVinci Resolve (trascrizione, correzione su script, suddivisione, SRT, marker). Usala per \"fai i subs\" o \"rigenera i subs in questo punto\"."
 ---
 
-# Better Subs Davinci — v1.2
+# Better Subs Davinci — v1.1.5
 Sottotitoli in DaVinci Resolve per reel verticali.
 
 Lavora sulla timeline aperta in Resolve tramite gli strumenti `run_script` / `run_script_unsafe` (se l'agente li tiene da attivare o differiti, caricali prima con il suo meccanismo; i nomi possono cambiare a seconda del server MCP di Resolve collegato, in tal caso usa gli equivalenti). Ogni chiamata è stateless: rileggi sempre lo stato dalla timeline. Rispondi in italiano.
@@ -218,4 +218,4 @@ else:
 Aggiorna `metadata.version` nel blocco iniziale, il titolo e una riga qui a ogni modifica. Il dettaglio sta in `CHANGELOG.md` della repo.
 - **1.0** — prima versione condivisibile: domande su progetto, timeline, `MAXC` e script se non indicati; trascrizione esterna obbligatoria senza script; glossari in file separati.
 - **1.1** — indipendente dall'agente: i nomi degli strumenti sono esempi, niente `ToolSearch`.
-- **1.2** — dopo la revisione: backup e ripristino della traccia, `EXT_WORDS` per la trascrizione esterna, controlli su `RANGE`, domande in un solo messaggio.
+- **1.1.5** — dopo la revisione: backup e ripristino della traccia, `EXT_WORDS` per la trascrizione esterna, controlli su `RANGE`, domande in un solo messaggio.
