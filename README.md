@@ -22,7 +22,7 @@ Versione 1.1.5. Le istruzioni e i sottotitoli sono in italiano.
 
 La cartella della skill deve chiamarsi `better-subs-davinci`. Dopo l'installazione riavvia l'agente.
 
-### Claude Code, Codex, OpenCode
+### Claude Code, Codex, OpenCode (consigliati)
 Basta un comando, con Node.js 22.20 o successivo (se non lo hai, vedi [Se non hai Node.js](#se-non-hai-nodejs)). L'installer `skills` installa la skill nella cartella giusta di ogni agente.
 ```bash
 npx skills add Fob-io/better-subs-davinci-skill -g -a claude-code -a codex -a opencode
