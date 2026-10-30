@@ -194,16 +194,17 @@ else:
         open(bak, "w", encoding="utf-8").write(srt_of([(x.GetStart(), x.GetEnd(), x.GetName()) for x in subs]))
         inout = tl.GetMarkInOut(); fail = None
         try:
-            tl.DeleteClips(subs, False)
+            if subs: tl.DeleteClips(subs, False)
             tl.SetTrackEnable("subtitle", 1, True)
             tl.SetCurrentTimecode(tl.GetStartTimecode())
             imp = mp.ImportMedia([path]); assert imp, "import SRT vuoto"
             mp.AppendToTimeline([imp[0]])
         except Exception as err:
             fail = str(err)
-            tl.SetCurrentTimecode(tl.GetStartTimecode())
-            rb = mp.ImportMedia([bak])
-            if rb: mp.AppendToTimeline([rb[0]])
+            if subs:
+                tl.SetCurrentTimecode(tl.GetStartTimecode())
+                rb = mp.ImportMedia([bak])
+                if rb: mp.AppendToTimeline([rb[0]])
         new = [(x.GetStart(), x.GetEnd(), x.GetName()) for x in sorted(tl.GetItemListInTrack("subtitle", 1) or [], key=lambda x: x.GetStart())]
         gaps = [(new[k][1], new[k+1][0]) for k in range(len(new)-1) if new[k][1] != new[k+1][0]]
         cross = [(t, c) for a, e, t in new for c in cuts if a < c < e]

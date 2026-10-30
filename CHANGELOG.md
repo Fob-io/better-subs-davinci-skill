@@ -5,6 +5,7 @@ Le versioni seguono `metadata.version` in `SKILL.md`. Più recente in alto.
 ## Non rilasciato
 Modifiche che non cambiano il comportamento e non meritano ancora una Release.
 
+- Corretto nello script: con la traccia sottotitoli vuota non si chiama più `DeleteClips` e non si prova a ripristinare un backup vuoto. Trovato nella prima prova su Resolve vero (inserimento di 12 sottotitoli con trascrizione esterna, tempi identici ai previsti).
 - Il glossario personale ora si chiama `glossario.<nome>.md` (per esempio `glossario.fabio.md`): si apre e si legge bene negli editor e su GitHub. La skill continua a leggere tutti i file `glossario.*`, quindi i vecchi nomi senza `.md` funzionano ancora. `glossario.md` resta il modello condiviso; `.gitignore` ignora i glossari personali.
 
 ## 1.1.5 (2026-10-30)
