@@ -1,4 +1,4 @@
-## Glossario (modello: compila qui, oppure crea il tuo `glossario.<nome>` privato)
+## Glossario (modello: compila qui, oppure crea il tuo `glossario.<nome>.md` privato)
 
 Una sezione per cliente o progetto. Tieni solo ciò che serve davvero ai sottotitoli.
 

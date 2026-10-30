@@ -1,6 +1,6 @@
 # Better Subs Davinci
 
-Skill in formato Agent Skills (Claude Code, app Claude e altri agenti) che genera, corregge e inserisce in DaVinci Resolve i sottotitoli dei reel verticali (1080×1920). Versione 1.1.5. Le istruzioni e i sottotitoli sono in italiano.
+Skill in formato Agent Skills (Claude Code, app Claude e altri agenti) che genera, corregge e inserisce in DaVinci Resolve i sottotitoli dei reel verticali (1080×1920). Versione 1.1.6. Le istruzioni e i sottotitoli sono in italiano.
 
 ## Cosa fa
 - Controlla che Resolve sia aperto, lo apre se serve, e chiede progetto, timeline e massimo di caratteri per sottotitolo se non li indichi.
@@ -22,7 +22,7 @@ Basta un comando, con Node.js 22.20 o successivo (se non lo hai, vedi [Se non ha
 ```bash
 npx skills add Fob-io/better-subs-davinci-skill -g -a claude-code -a codex -a opencode
 ```
-Per aggiornare: `npx skills update`. Per controllare: `npx skills check`. Un aggiornamento potrebbe non rispettare un tuo `glossario.<nome>` dentro la cartella installata: tienine una copia fuori, oppure usa `git clone`, dove git lo ignora.
+Per aggiornare: `npx skills update`. Per controllare: `npx skills check`. Un aggiornamento potrebbe non rispettare un tuo `glossario.<nome>.md` dentro la cartella installata: tienine una copia fuori, oppure usa `git clone`, dove git lo ignora.
 
 Senza Node, clona direttamente nella cartella dell'agente:
 
@@ -57,7 +57,7 @@ Scarica `better-subs-davinci-vX.Y.zip` dalla [pagina Release](https://github.com
 Cursor, Gemini CLI, GitHub Copilot e gli altri che leggono il formato Agent Skills: lancia lo stesso comando senza `-a` e scegli l'agente quando te lo chiede.
 
 ## Glossario
-`glossario.md` è un modello vuoto. Crea il tuo `glossario.<nome>` accanto a `SKILL.md` con clienti, parole chiave ed errori tipici. La skill lo legge, git lo ignora e quindi resta sul tuo Mac.
+`glossario.md` è un modello vuoto. Crea il tuo `glossario.<nome>.md` accanto a `SKILL.md` con clienti, parole chiave ed errori tipici. La skill lo legge, git lo ignora e quindi resta sul tuo Mac.
 
 ## Licenza
 MIT, vedi `LICENSE`.
